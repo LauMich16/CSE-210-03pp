@@ -30,7 +30,7 @@ class Jumper:
             print("")
             print("/\\/\\/\\/\\/\\/\\/\\/\\")
 
-        elif self._lines ==2:
+        elif self._lines == 2:
             print("-------------")
             print("")
             print("  \\   /")
