@@ -81,6 +81,12 @@ class Director:
             self._puzzle.reveal_puzzle()
         else:
             self._jumper.cut_line()
+
+        if self._puzzle.is_solved():
+            self._keep_playing = False
+        
+        if self._puzzle.incorrect_guesses >= 4:
+            self._keep_playing = False
         
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
