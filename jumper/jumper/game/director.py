@@ -35,6 +35,7 @@ class Director:
         """
         self._puzzle.get_puzzle()
         self._puzzle.display_revealed_puzzle()
+        self._puzzle.display_hint()
         self._jumper.draw_jumper()
 
         while self._keep_playing:
@@ -97,6 +98,7 @@ class Director:
             self (Director): An instance of Director.
         """
         self._puzzle.display_revealed_puzzle()
+        self._puzzle.display_hint()
         print("")
         self._jumper.draw_jumper()
         print("")

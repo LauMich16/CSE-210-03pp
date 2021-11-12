@@ -4,6 +4,7 @@ class Puzzle:
 
     def __init__(self):
         self._puzzle_list = ["jumper", "hangman", "wizard", "torpedo", "banana", "america",]
+        self._hint_dict = {"jumper": "name of the game", "hangman": "other name for game", "wizard":"harry potter", "torpedo":"KABOOM", "banana":"a fruit", "america": "a continent"}
         self._current_puzzle = ""
         self.revealed_puzzle = []
         self._guessed_letter = ""
@@ -47,3 +48,6 @@ class Puzzle:
         for i in self.revealed_puzzle:
             print(i, end=" ")
         print("")
+
+    def display_hint(self):
+        print(f"Hint: {self._hint_dict[self._current_puzzle]}")
