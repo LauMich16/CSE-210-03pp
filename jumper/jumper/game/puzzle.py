@@ -1,6 +1,7 @@
 import random
 
 class Puzzle:
+    """Keep track of the current word and the revealed word"""
 
     def __init__(self):
         self._puzzle_list = ["jumper", "hangman", "wizard", "torpedo", "banana", "america",]
