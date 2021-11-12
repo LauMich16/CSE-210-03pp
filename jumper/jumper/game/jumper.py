@@ -58,12 +58,6 @@ class Jumper:
             print("   / \\")
             print("/\\/\\/\\/\\/\\/\\/\\/\\")
 
-
-
-
-
-    
-
     def cut_line(self):
         """Cuts a line from the jumper"""
         self._lines -= 1

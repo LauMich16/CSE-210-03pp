@@ -34,9 +34,7 @@ class Director:
             self (Director): an instance of Director.
         """
         self._puzzle.get_puzzle()
-        self._puzzle.display_revealed_puzzle()
-        self._puzzle.display_hint()
-        self._jumper.draw_jumper()
+        self._do_outputs()
 
         while self._keep_playing:
             print("")
@@ -83,12 +81,7 @@ class Director:
         else:
             self._jumper.cut_line()
 
-        # These ifs end the game
-        if self._puzzle.is_solved():
-            self._keep_playing = False
-        
-        if self._puzzle.incorrect_guesses >= 4:
-            self._keep_playing = False
+
         
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -98,8 +91,18 @@ class Director:
             self (Director): An instance of Director.
         """
         self._puzzle.display_revealed_puzzle()
-        self._puzzle.display_hint()
+        hint = self._puzzle.get_hint()
+        self._console.write(hint)
         print("")
         self._jumper.draw_jumper()
         print("")
+
+        # These ifs end the game
+        if self._puzzle.is_solved():
+            self._keep_playing = False
+            self._puzzle.display_win_screen()
+        
+        if self._puzzle.incorrect_guesses >= 4:
+            self._keep_playing = False
+            self._puzzle.display_loss_screen()
         
